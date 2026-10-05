@@ -55,9 +55,9 @@
   }
 
   // 2) 网络失败 / 数据为空处理
-  function loadPlanets() {
+  function loadPlanets(url) {
     showStatus("warn", "正在加载行星数据…");
-    fetch(dataUrl)
+    fetch(url || dataUrl)
       .then(function (res) {
         if (!res.ok) throw new Error("HTTP " + res.status);
         return res.json();
@@ -193,6 +193,14 @@
     });
   });
 
+  // 深链接：?q=关键词 预填搜索框并触发搜索（也便于自动化验证）
+  var preset = params.get("q");
+  if (preset !== null) {
+    els.search.value = preset;
+    var kw = validateKeyword(els.search.value);
+    if (kw !== null) state.keyword = kw;
+  }
+
   /* ---------- 启动 ---------- */
   if (srcMode === "broken") {
     // 演示场景：请求一个不存在的地址，触发网络失败分支
@@ -205,9 +213,8 @@
       });
   } else if (srcMode === "empty") {
     // 演示场景：加载空数据源，触发数据为空分支
-    dataUrl = "data/empty.json";
-    loadPlanets();
+    loadPlanets("data/empty.json");
   } else {
-    loadPlanets();
+    loadPlanets(dataUrl);
   }
 })();

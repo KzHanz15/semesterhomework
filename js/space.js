@@ -138,13 +138,17 @@
     raycaster.setFromCamera(mouse, camera);
     var hits = raycaster.intersectObjects(planets);
     if (hits.length > 0) {
-      var def = hits[0].object.userData;
-      infoName.textContent = def.name;
-      infoDetail.textContent = def.detail;
-      infoBox.classList.add("show");
+      showPlanetInfo(hits[0].object.userData);
     } else {
       infoBox.classList.remove("show");
     }
+  }
+
+  // 展示行星信息面板（点击行星与 ?focus= 深链接共用）
+  function showPlanetInfo(def) {
+    infoName.textContent = def.name;
+    infoDetail.textContent = def.detail;
+    infoBox.classList.add("show");
   }
 
   function onResize() {
@@ -177,5 +181,14 @@
     init();
   } else {
     window.addEventListener("load", init);
+  }
+
+  // 深链接：?focus=行星名 自动展示对应行星信息
+  var focusParam = new URLSearchParams(window.location.search).get("focus");
+  if (focusParam) {
+    window.addEventListener("load", function () {
+      var target = PLANETS.filter(function (d) { return d.name === focusParam; })[0];
+      if (target) setTimeout(function () { showPlanetInfo(target); }, 1200);
+    });
   }
 })();
