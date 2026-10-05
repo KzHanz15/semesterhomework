@@ -1,0 +1,5 @@
+# 本地报告素材（截图等）不入库
+screenshots/
+*.log
+.DS_Store
+Thumbs.db
