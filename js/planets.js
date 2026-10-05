@@ -195,26 +195,30 @@
 
   // 深链接：?q=关键词 预填搜索框并触发搜索（也便于自动化验证）
   var preset = params.get("q");
+  var presetValid = true;
   if (preset !== null) {
     els.search.value = preset;
     var kw = validateKeyword(els.search.value);
     if (kw !== null) state.keyword = kw;
+    else presetValid = false; // 非法输入：保持错误提示，不再加载数据
   }
 
   /* ---------- 启动 ---------- */
-  if (srcMode === "broken") {
-    // 演示场景：请求一个不存在的地址，触发网络失败分支
-    fetch("data/not-exist.json")
-      .then(function (res) { if (!res.ok) throw new Error("HTTP " + res.status); return res.json(); })
-      .catch(function (err) {
-        console.error("加载数据失败：", err);
-        showStatus("error", "数据加载失败：" + err.message + "。请检查网络连接后刷新页面重试。");
-        render([]);
-      });
-  } else if (srcMode === "empty") {
-    // 演示场景：加载空数据源，触发数据为空分支
-    loadPlanets("data/empty.json");
-  } else {
-    loadPlanets(dataUrl);
+  if (presetValid) {
+    if (srcMode === "broken") {
+      // 演示场景：请求一个不存在的地址，触发网络失败分支
+      fetch("data/not-exist.json")
+        .then(function (res) { if (!res.ok) throw new Error("HTTP " + res.status); return res.json(); })
+        .catch(function (err) {
+          console.error("加载数据失败：", err);
+          showStatus("error", "数据加载失败：" + err.message + "。请检查网络连接后刷新页面重试。");
+          render([]);
+        });
+    } else if (srcMode === "empty") {
+      // 演示场景：加载空数据源，触发数据为空分支
+      loadPlanets("data/empty.json");
+    } else {
+      loadPlanets(dataUrl);
+    }
   }
 })();
