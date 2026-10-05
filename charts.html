@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据可视化 · 星空天文馆</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand" href="index.html"><span class="star-icon">✦</span>星空天文馆</a>
+    <button class="nav-toggle" aria-label="打开菜单">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="planets.html">行星档案</a></li>
+      <li><a href="charts.html">数据可视化</a></li>
+      <li><a href="space.html">三维太阳系</a></li>
+      <li><a href="about.html">关于</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2 class="section-title">数据<span>可视化</span></h2>
+    <div class="status-box" id="status-box"></div>
+
+    <div class="chart-grid">
+      <div class="chart-box">
+        <h3>八大行星直径对比</h3>
+        <p class="sub">柱状图 · 单位：公里（km）· 数据源：data/planets.json</p>
+        <div class="chart" id="chart-bar"></div>
+      </div>
+      <div class="chart-box">
+        <h3>行星类型分布</h3>
+        <p class="sub">饼图 · 类地 / 气态巨 / 冰巨行星数量占比</p>
+        <div class="chart" id="chart-pie"></div>
+      </div>
+    </div>
+
+    <div class="chart-box">
+      <h3>地火木三行星特征对比</h3>
+      <p class="sub">雷达图 · 直径、距日、温度、重力、卫星数五维归一化对比</p>
+      <div class="chart" id="chart-radar"></div>
+    </div>
+  </div>
+
+  <footer>星空天文馆 · 软件开发综合实践期末大作业 · 20253060001 彭建仁</footer>
+  <script src="lib/echarts.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/charts.js"></script>
+</body>
+</html>

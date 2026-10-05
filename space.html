@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三维太阳系 · 星空天文馆</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand" href="index.html"><span class="star-icon">✦</span>星空天文馆</a>
+    <button class="nav-toggle" aria-label="打开菜单">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="planets.html">行星档案</a></li>
+      <li><a href="charts.html">数据可视化</a></li>
+      <li><a href="space.html">三维太阳系</a></li>
+      <li><a href="about.html">关于</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2 class="section-title">三维<span>太阳系</span></h2>
+
+    <div class="scene-wrap">
+      <canvas id="three-scene"></canvas>
+      <div class="space-info" id="space-info">
+        <h4 id="space-name">行星</h4>
+        <p id="space-detail"></p>
+      </div>
+    </div>
+
+    <p class="scene-tip">🖱 拖拽旋转 · 滚轮缩放 · 点击行星查看信息</p>
+
+    <div class="legend" id="legend"></div>
+  </div>
+
+  <footer>星空天文馆 · 软件开发综合实践期末大作业 · 20253060001 彭建仁</footer>
+  <script src="lib/three.min.js"></script>
+  <script src="lib/OrbitControls.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/space.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于 · 星空天文馆</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand" href="index.html"><span class="star-icon">✦</span>星空天文馆</a>
+    <button class="nav-toggle" aria-label="打开菜单">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="planets.html">行星档案</a></li>
+      <li><a href="charts.html">数据可视化</a></li>
+      <li><a href="space.html">三维太阳系</a></li>
+      <li><a href="about.html">关于</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2 class="section-title">关于<span>作品</span></h2>
+
+    <div class="about-block">
+      <h3>作品简介</h3>
+      <p>「星空天文馆」是一个面向天文爱好者的科普展示型 Web 作品，将八大行星的科学数据以文字、图表与三维场景三种形式呈现，帮助用户直观理解太阳系的构成。</p>
+    </div>
+
+    <div class="about-block">
+      <h3>功能模块</h3>
+      <ul>
+        <li><b>行星档案</b>：基于 JSON 数据渲染行星卡片，支持搜索、类型筛选、排序、收藏与详情弹窗。</li>
+        <li><b>数据可视化</b>：使用 ECharts 绘制柱状图、饼图、雷达图。</li>
+        <li><b>三维太阳系</b>：使用 Three.js 构建可交互的三维场景，支持旋转、缩放与点击查看。</li>
+        <li><b>错误处理</b>：覆盖网络失败、数据为空、非法输入三种场景。</li>
+      </ul>
+    </div>
+
+    <div class="about-block">
+      <h3>技术栈</h3>
+      <ul>
+        <li>HTML5 语义化标签 + CSS3（Flex/Grid 布局、媒体查询响应式）</li>
+        <li>原生 JavaScript（ES5 风格、Fetch API、localStorage）</li>
+        <li>ECharts 5.5（数据可视化）</li>
+        <li>Three.js r147 + OrbitControls（三维场景）</li>
+        <li>JSON（数据组织与加载）</li>
+      </ul>
+    </div>
+
+    <div class="about-block">
+      <h3>如何运行</h3>
+      <ul>
+        <li>由于页面通过 Fetch 加载本地 JSON，请使用本地 HTTP 服务器（而非直接双击打开）。</li>
+        <li>在项目根目录运行：<code>npx serve .</code> 或任意静态服务器，然后访问 http://localhost:3000。</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>星空天文馆 · 软件开发综合实践期末大作业 · 20253060001 彭建仁</footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

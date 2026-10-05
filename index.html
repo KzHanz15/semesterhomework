@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>星空天文馆 · 首页</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand" href="index.html"><span class="star-icon">✦</span>星空天文馆</a>
+    <button class="nav-toggle" aria-label="打开菜单">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="planets.html">行星档案</a></li>
+      <li><a href="charts.html">数据可视化</a></li>
+      <li><a href="space.html">三维太阳系</a></li>
+      <li><a href="about.html">关于</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <header class="hero">
+      <h1>✦ 星空天文馆 ✦</h1>
+      <p>探索太阳系的八大行星，用数据与三维场景感受宇宙之美</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="planets.html">查看行星档案</a>
+        <a class="btn btn-ghost" href="space.html">进入三维太阳系</a>
+      </div>
+    </header>
+
+    <div class="astro-tip" id="astro-tip">
+      <h4>🌌 今日观星提示</h4>
+      <p id="tip-content">正在获取今日观星信息…</p>
+    </div>
+
+    <h2 class="section-title">场馆<span>功能</span></h2>
+    <div class="features">
+      <div class="card">
+        <div class="icon">🪐</div>
+        <h3>行星档案</h3>
+        <p>基于 JSON 数据展示八大行星信息，支持搜索、筛选、排序与收藏。</p>
+      </div>
+      <div class="card">
+        <div class="icon">📊</div>
+        <h3>数据可视化</h3>
+        <p>使用 ECharts 绘制柱状图、饼图与雷达图，直观对比行星数据。</p>
+      </div>
+      <div class="card">
+        <div class="icon">🌍</div>
+        <h3>三维太阳系</h3>
+        <p>使用 Three.js 构建可交互的太阳系三维场景，支持旋转、缩放与点击。</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>星空天文馆 · 软件开发综合实践期末大作业 · 20253060001 彭建仁</footer>
+  <script src="js/main.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

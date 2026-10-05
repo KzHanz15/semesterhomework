@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>行星档案 · 星空天文馆</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a class="brand" href="index.html"><span class="star-icon">✦</span>星空天文馆</a>
+    <button class="nav-toggle" aria-label="打开菜单">☰</button>
+    <ul class="nav-links">
+      <li><a href="index.html">首页</a></li>
+      <li><a href="planets.html">行星档案</a></li>
+      <li><a href="charts.html">数据可视化</a></li>
+      <li><a href="space.html">三维太阳系</a></li>
+      <li><a href="about.html">关于</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2 class="section-title">行星<span>档案</span></h2>
+
+    <div class="toolbar">
+      <input type="search" id="search-input" placeholder="输入行星名称搜索，如：地球、Mars…" maxlength="30">
+      <select id="sort-select" aria-label="排序方式">
+        <option value="default">默认排序</option>
+        <option value="diameter">按直径 ↓</option>
+        <option value="distance">按距离 ↓</option>
+        <option value="temperature">按温度 ↓</option>
+      </select>
+      <div class="chip-group" id="type-chips" aria-label="类型筛选">
+        <button class="chip active" data-type="all">全部</button>
+        <button class="chip" data-type="类地行星">类地行星</button>
+        <button class="chip" data-type="气态巨行星">气态巨行星</button>
+        <button class="chip" data-type="冰巨行星">冰巨行星</button>
+      </div>
+    </div>
+
+    <div class="status-box" id="status-box"></div>
+    <div class="result-meta" id="result-meta"></div>
+
+    <div id="planet-grid" class="planet-grid" aria-live="polite"></div>
+    <div id="empty-tip" class="empty-tip" style="display:none;">
+      <span class="big">🌑</span>
+      <p id="empty-text">没有找到匹配的行星</p>
+    </div>
+  </div>
+
+  <!-- 详情弹窗 -->
+  <div class="modal-mask" id="modal-mask">
+    <div class="modal" role="dialog" aria-modal="true">
+      <h3 id="modal-name">行星</h3>
+      <div class="en" id="modal-en"></div>
+      <p class="desc" id="modal-desc"></p>
+      <table>
+        <tbody id="modal-table"></tbody>
+      </table>
+      <button class="close-btn" id="modal-close">关闭</button>
+    </div>
+  </div>
+
+  <footer>星空天文馆 · 软件开发综合实践期末大作业 · 20253060001 彭建仁</footer>
+  <script src="js/main.js"></script>
+  <script src="js/planets.js"></script>
+</body>
+</html>
